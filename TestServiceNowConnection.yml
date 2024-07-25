@@ -1,0 +1,18 @@
+---
+- name: Test ServiceNow Connection
+  hosts: localhost
+  connection: local
+  gather_facts: false
+
+  tasks:
+    - name: Retrieve a list of incidents
+      servicenow.itsm.incident_info:
+        instance:
+          host: "{{ snow_instance }}"
+          username: "{{ snow_username }}"
+          password: "{{ snow_password }}"
+      register: incidents
+
+    - name: Display incident count
+      debug:
+        msg: "Retrieved {{ incidents.records | length }} incidents from ServiceNow"
