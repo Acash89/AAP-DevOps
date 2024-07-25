@@ -1,0 +1,14 @@
+---
+- name: ServiceNow Event Handler
+  hosts: all
+  sources:
+    - ansible.eda.webhook:
+        host: 0.0.0.0
+        port: 5000
+  rules:
+    - name: Trigger ServiceNow Test
+      condition: event.payload.test == true
+      action:
+        run_job_template:
+          name: "Test ServiceNow Connection"
+          organization: "Default"
