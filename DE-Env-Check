@@ -1,0 +1,20 @@
+---
+- name: Check Decision Environment
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Check ansible-rulebook version
+      command: ansible-rulebook --version
+      register: rulebook_version
+
+    - name: Display ansible-rulebook version
+      debug:
+        var: rulebook_version.stdout_lines
+
+    - name: List installed collections
+      command: ansible-galaxy collection list
+      register: galaxy_list
+
+    - name: Display installed collections
+      debug:
+        var: galaxy_list.stdout_lines
