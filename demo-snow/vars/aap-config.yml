@@ -1,8 +1,8 @@
 ---
 # Details of a ServiceNow host
-snow_hostname: https://dev123456.service-now.com
+snow_hostname: https://dev266474.service-now.com/
 snow_username: admin
-snow_password: Password1
+snow_password: a@Me1fMW6z$F
 
 controller_organizations:
   - name: "midrange"
